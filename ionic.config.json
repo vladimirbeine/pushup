@@ -1,6 +1,9 @@
 {
   "name": "push-up",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular",
   "id": "ada13609"
 }
