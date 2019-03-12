@@ -1,4 +1,4 @@
-<ion-split-pane when="sm" contentId="content">
+<ion-split-pane disabled when="sm" contentId="content">
   <ion-menu>
     <ion-header>
       <ion-toolbar>
@@ -8,8 +8,9 @@
 
     <ion-content>
       <ion-list>
-        <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+        <ion-menu-toggle auto-hide="false">
           <ion-item
+            *ngFor="let p of pages"
             [href]="p.url"
             [class.active-url]="activeUrl === p.url"
             routerDirection="root"
@@ -18,34 +19,28 @@
               {{ p.title }}
             </ion-label>
           </ion-item>
+
+          <ion-button *ngIf="userNot == true" href="/menu/(menucontent:login)"
+            >Se connecter</ion-button
+          >
+
+          <ion-item
+            *ngFor="let u of userIn"
+            [href]="u.url"
+            [class.active-url]="activeUrl === u.url"
+            routerDirection="root"
+          >
+            <ion-label>
+              {{ u.title }}
+            </ion-label>
+          </ion-item>
+
+          <ion-button *ngIf="userIs == true" (click)="logOut()"
+            >Se deconnecter</ion-button
+          >
         </ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>
   <ion-router-outlet name="menucontent" id="content" main></ion-router-outlet>
 </ion-split-pane>
-
-<ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="schedule">
-        <ion-icon name="calendar"></ion-icon>
-        <ion-label>Schedule</ion-label>
-        <ion-badge>6</ion-badge>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="speakers">
-        <ion-icon name="contacts"></ion-icon>
-        <ion-label>Speakers</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="map">
-        <ion-icon name="map"></ion-icon>
-        <ion-label>Map</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="about">
-        <ion-icon name="information-circle"></ion-icon>
-        <ion-label>About</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>

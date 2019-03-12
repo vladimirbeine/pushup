@@ -10,7 +10,11 @@ import { SignupPage } from "../signup/signup.page";
 import { DetailsPage } from "../details/details.page";
 import { AboutPage } from "../about/about.page";
 import { AdminPage } from "../admin/admin.page";
-import { TabsPage } from "../tabs/tabs.page";
+import { ResetPasswordPage } from "../reset-password/reset-password.page";
+import { AuthGuard } from "../../services/user/auth.guard";
+import { CardProcessingPage } from "../card-processing/card-processing.page";
+import { DiscoverPage } from "../discover/discover.page";
+import { CreateCampainPage } from "../create-campain/create-campain.page";
 
 const routes: Routes = [
   {
@@ -20,17 +24,20 @@ const routes: Routes = [
       {
         path: "notifications",
         outlet: "menucontent",
-        component: NotificationsPage
+        component: NotificationsPage,
+        canActivate: [AuthGuard]
       },
       {
         path: "profile",
         outlet: "menucontent",
-        component: ProfilePage
+        component: ProfilePage,
+        canActivate: [AuthGuard]
       },
       {
         path: "settings",
         outlet: "menucontent",
-        component: SettingsPage
+        component: SettingsPage,
+        canActivate: [AuthGuard]
       },
       {
         path: "login",
@@ -48,19 +55,41 @@ const routes: Routes = [
         component: SignupPage
       },
       {
-        path: "details",
+        path: "details/:id/:title",
         outlet: "menucontent",
         component: DetailsPage
       },
       {
         path: "about",
         outlet: "menucontent",
-        component: AboutPage
+        component: AboutPage,
+        canActivate: [AuthGuard]
       },
       {
         path: "admin",
         outlet: "menucontent",
-        component: AdminPage
+        component: AdminPage,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: "resetpassword",
+        outlet: "menucontent",
+        component: ResetPasswordPage
+      },
+      {
+        path: "card/:id",
+        outlet: "menucontent",
+        component: CardProcessingPage
+      },
+      {
+        path: "discover",
+        outlet: "menucontent",
+        component: DiscoverPage
+      },
+      {
+        path: "create-campain",
+        outlet: "menucontent",
+        component: CreateCampainPage
       }
     ]
   },

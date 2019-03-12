@@ -3,7 +3,19 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Mes parametres</ion-title>
+    <a href="/menu/(menucontent:home)"
+      ><img
+        id="toolbar-home"
+        src="../../../assets/images/pushup.png"
+        alt="Pushup Haiti"
+    /></a>
+    <ul slot="end" id="toolbar-menu">
+      <a href="/menu/(menucontent:discover)"><li>Decouvrir</li></a>
+      <a href="/menu/(menucontent:create-campain)"
+        ><li>Creer une campagne</li></a
+      >
+    </ul>
+    <ion-searchbar slot="end"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 

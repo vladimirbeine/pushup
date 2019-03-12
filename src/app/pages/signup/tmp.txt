@@ -1,0 +1,71 @@
+
+  <ion-item>
+    <ion-label position="floating">Nom d'utilisateur</ion-label>
+    <ion-input
+      type="text"
+      [(ngModel)]="username"
+      placeholder="Choisissez un surnom"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input
+      className="login-field"
+      [(ngModel)]="email"
+      type="email"
+      placeholder="Votre adresse de messagerie"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Mot de passe</ion-label>
+    <ion-input
+      className="login-field"
+      [(ngModel)]="password1"
+      type="password"
+      placeholder="Votre mot de passe"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Confirmation</ion-label>
+    <ion-input
+      className="login-field"
+      [(ngModel)]="password2"
+      type="password"
+      placeholder="Confirmer votre mot de passe"
+    ></ion-input> </ion-item
+  ><br />
+
+  <ion-button expand="block" color="success" (click)="signupUser()">
+    Creer mon compte </ion-button
+  ><br />
+
+  <ion-button
+    expand="block"
+    fill="solid"
+    color="primary"
+    href="/menu/(menucontent:login)"
+  >
+    J'ai deja un compte </ion-button
+  ><br /><br /><br /><br />
+
+    async takePicture(): Promise<void> {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+    try {
+      const profilePicture = await this.camera.getPicture(options).then((img) => {
+        let base64Image = 'data:image/jpeg;base64,' + img;
+      }, (err) => {
+        console.log(err)
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }

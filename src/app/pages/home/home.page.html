@@ -3,31 +3,36 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Accueil</ion-title>
+    <a href="/menu/(menucontent:home)"
+      ><img
+        id="toolbar-home"
+        src="../../../assets/images/pushup.png"
+        alt="Pushup Haiti"
+    /></a>
+    <ul slot="end" id="toolbar-menu">
+      <a href="/menu/(menucontent:discover)"><li>Decouvrir</li></a>
+      <a href="/menu/(menucontent:create-campain)"><li>Demander un Push</li></a>
+    </ul>
+    <ion-searchbar slot="end"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding> </ion-content>
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button (click)="goToHome()" tab="home">
-      <ion-icon name="home"></ion-icon>
-      <ion-label>Accueil</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button (click)="goToNotifs()" tab="notifications">
-      <ion-icon name="notifications"></ion-icon>
-      <ion-label>Notifications</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button href="/menu/(menucontent:profile)" tab="profile">
-      <ion-icon name="person"></ion-icon>
-      <ion-label>Profile</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button href="/menu/(menucontent:settings)" tab="settings">
-      <ion-icon name="options"></ion-icon>
-      <ion-label>Paramatres</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+<ion-content>
+  <div>
+    <ion-card
+      *ngFor="let p of projects"
+      (click)="openProjectDetail(p.id, p.title)"
+    >
+      <ion-card-content>
+        <ion-img [src]="p.img"></ion-img>
+        <ion-card-title> {{ p.title }} </ion-card-title>
+        <ion-card-subtitle> {{ p.subtitle | uppercase }} </ion-card-subtitle>
+        <p class="desc">{{ p.description }}</p>
+        <p class="amount">
+          ${{ p.raisedAmount }} disponible sur ${{ p.totalAmount }}
+        </p>
+        <p><ion-icon name="pin"></ion-icon> {{ p.city }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

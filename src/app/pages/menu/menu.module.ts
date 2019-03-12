@@ -15,6 +15,10 @@ import { HomePageModule } from "../home/home.module";
 import { LoginPageModule } from "../login/login.module";
 import { SignupPageModule } from "../signup/signup.module";
 import { AdminPageModule } from "../admin/admin.module";
+import { ResetPasswordPageModule } from "../reset-password/reset-password.module";
+import { CardProcessingPageModule } from "../card-processing/card-processing.module";
+import { DiscoverPageModule } from "../discover/discover.module";
+import { CreateCampainPageModule } from "../create-campain/create-campain.module";
 
 @NgModule({
   imports: [
@@ -30,7 +34,11 @@ import { AdminPageModule } from "../admin/admin.module";
     HomePageModule,
     LoginPageModule,
     SignupPageModule,
-    AdminPageModule
+    AdminPageModule,
+    ResetPasswordPageModule,
+    CardProcessingPageModule,
+    DiscoverPageModule,
+    CreateCampainPageModule
   ],
   declarations: [MenuPage]
 })

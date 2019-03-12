@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <a href="/menu/(menucontent:home)"
+      ><img
+        id="toolbar-home"
+        src="../../../assets/images/pushup.png"
+        alt="Pushup Haiti"
+    /></a>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-ctner">
+    <div class="float-left">
+      <h3 text-center>Indiquez votre objectif ici</h3>
+
+      <ion-item>
+        <ion-label position="stacked">Montant</ion-label>
+        <ion-input type="number" value="0.00"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Titre de la campagne</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pour qui collectez-vous de l'argent?</ion-label>
+        <ion-select placeholder="Options">
+          <ion-select-option value="f">Moi-meme</ion-select-option>
+          <ion-select-option value="m">Association</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Votre region</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-label>Choisissez une categorie</ion-label>
+      <ion-select placeholder="Options">
+        <ion-select-option value="">Urgences</ion-select-option>
+        <ion-select-option value="">Animaux</ion-select-option>
+        <ion-select-option value="">Arts creatifs</ion-select-option>
+        <ion-select-option value="">Bebes</ion-select-option>
+        <ion-select-option value="">Benevolat</ion-select-option>
+        <ion-select-option value="">Communaute</ion-select-option>
+      </ion-select>
+      <h3>Collecter des fonds :</h3>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-checkbox></ion-checkbox> Seul :
+            <p>
+              Je suis le seul organisateur de la campagne. Remarque : il est
+              possible d'activer la collecte de fonds en équipe ultérieurement.
+            </p>
+          </ion-col>
+          <ion-col>
+            <ion-checkbox></ion-checkbox> En equipe :
+            <p>
+              Je vais inviter d'autres personnes à collecter des fonds avec moi.
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="float-right">
+      <p>
+        Aucuns frais de plateforme ne sont facturés aux organisateurs. Les frais
+        de transaction s'élèvent à 2,9 % + 0,30 $ par don. En poursuivant, vous
+        acceptez les conditions d'utilisation et accusez réception de l'avis de
+        confidentialité de GoFundMe.
+      </p>
+      <ion-button color="primary" expand="block">Suivant</ion-button>
+    </div>
+  </div>
+</ion-content>

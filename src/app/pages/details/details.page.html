@@ -1,10 +1,107 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Page des details</ion-title>
+    <a href="/menu/(menucontent:home)"
+      ><img
+        id="toolbar-home"
+        src="../../../assets/images/pushup.png"
+        alt="Pushup Haiti"
+    /></a>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding> </ion-content>
+<ion-content padding>
+  <div class="left-details">
+    <ion-card id="descrip" *ngFor="let p of (projects | slice: end)">
+      <ion-card-content *ngIf="p.id == id">
+        <ion-img [src]="p.img"></ion-img>
+        <ion-card-title> {{ p.title }} </ion-card-title>
+        <ion-card-subtitle> {{ p.subtitle }} </ion-card-subtitle>
+        <p class="desc">{{ p.description }}</p>
+        <p class="amount">
+          ${{ p.raisedAmount }} disponible sur ${{ p.totalAmount }}
+        </p>
+        <p><ion-icon name="pin"></ion-icon> {{ p.city }}</p>
+        <ion-grid>
+          <ion-row align-items-center>
+            <ion-col>
+              <ion-icon name="heart"></ion-icon
+              ><ion-badge color="primary">22</ion-badge>
+            </ion-col>
+            <ion-col>
+              <ion-icon name="share"></ion-icon
+              ><ion-badge color="primary">122</ion-badge>
+            </ion-col>
+            <ion-col>
+              <ion-icon name="chatbubbles"></ion-icon
+              ><ion-badge color="primary">222</ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <hr />
+        <ion-grid>
+          <ion-row align-items-center>
+            <ion-col>
+              <ion-button expand="block">Partager sur Facebook</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button expand="block">Partager sur Twitter</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-icon name="share"></ion-icon
+              ><ion-badge color="primary">222</ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    <ion-list>
+      <ion-item href="../../"
+        >Mises-a-jour du projet
+        <ion-badge color="primary" slot="end">2</ion-badge>
+        <ion-icon slot="end" name="arrow-dropright"></ion-icon
+      ></ion-item>
+      <ion-item href="../../"
+        >Commentaires <ion-badge color="primary" slot="end">32</ion-badge>
+        <ion-icon slot="end" name="arrow-dropright"></ion-icon
+      ></ion-item>
+    </ion-list>
+  </div>
+  <div class="rigt-details">
+    <div class="don-action">
+      <ion-button (click)="loadPaymentMethods(id)" expand="block"
+        >Faire un don</ion-button
+      >
+      <ion-button expand="block" fill="outline"
+        >Partager sur Facebook</ion-button
+      >
+    </div>
+    <h3>Engagements envers les Pushupers</h3>
+
+    <ion-card id="reward" *ngFor="let pledge of pledges">
+      <ion-card-content *ngIf="pledge.donationID == id">
+        <ion-card-title color="secondary">
+          Donner {{ pledge.amount }} gourdes ou plus
+        </ion-card-title>
+        <p>Vous obtiendrez:</p>
+        <ion-card-subtitle>
+          <h2>{{ pledge.reward }}</h2>
+        </ion-card-subtitle>
+        <p>
+          {{ pledge.description }}
+        </p>
+
+        Incluant:<br />
+        <ul>
+          <li>{{ pledge.including }}</li>
+        </ul>
+
+        <p>Date de livraison: {{ pledge.delivery }}</p>
+        <p>Lieu de livraison: {{ pledge.shipping }}</p>
+        <p>{{ pledge.pushuppers }} pushuppers ont choisi cette engagement</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
